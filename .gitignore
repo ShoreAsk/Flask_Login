@@ -218,3 +218,8 @@ migrations/env.py
 migrations/alembic.ini
 migrations/README
 *.mako
+.idea/workspace.xml
+*.xml
+.idea/Flask_Login.iml
+migrations/versions/a5ed8119a911_.py
+migrations/versions/fccacb834544_.py
