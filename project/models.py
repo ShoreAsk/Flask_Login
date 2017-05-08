@@ -17,8 +17,9 @@ class User(db.Model):
     position = db.Column(db.String(255), nullable=False)
     registered_on = db.Column(db.DateTime, nullable=False)
     admin = db.Column(db.Boolean, nullable=False, default=False)
+    active = db.Column(db.Boolean, nullable=False, default=True)
 
-    def __init__(self, first_name, last_name, email, password, team, position, admin=False):
+    def __init__(self, first_name, last_name, email, password, team, position, admin=False, active=True):
         self.email = email
         self.first_name = first_name
         self.last_name = last_name
@@ -27,12 +28,13 @@ class User(db.Model):
         self.position = position
         self.registered_on = datetime.datetime.now()
         self.admin = admin
+        self.active = active
 
     def is_authenticated(self):
         return True
 
     def is_active(self):
-        return True
+        return self.active
 
     def is_anonymous(self):
         return False
